@@ -5,11 +5,14 @@ import android.graphics.Color
 import android.util.AttributeSet
 import android.util.Log
 import android.view.*
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.AccelerateInterpolator
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Scroller
 import android.widget.TextView
 import androidx.core.view.children
+import androidx.core.view.marginBottom
 import androidx.core.view.marginTop
 
 /**
@@ -17,7 +20,7 @@ import androidx.core.view.marginTop
  * function:
  * date    :2021/2/10
  **/
-class CustomScrollView : ViewGroup {
+class CustomScrollView : LinearLayout {
     private var maxScrollY: Int = 0
     private var childHeight: Int = 0
     private var obtain: VelocityTracker? = null
@@ -26,8 +29,9 @@ class CustomScrollView : ViewGroup {
     val scroller: Scroller
 
     constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
-        scroller = Scroller(context)
-        scroller
+        scroller = Scroller(context,AccelerateInterpolator())
+//        scroller = Scroller(context,AccelerateDecelerateInterpolator())
+//        scroller.extendDuration(10)
         val configuration: ViewConfiguration = ViewConfiguration
             .get(getContext());
         mMinimumVelocity = configuration.getScaledMinimumFlingVelocity();
@@ -35,42 +39,19 @@ class CustomScrollView : ViewGroup {
 
     override fun onFinishInflate() {
         super.onFinishInflate()
-        for (i in 0..20) {
-            var tv = TextView(context)
-            tv.width = 1080
-            tv.height = 300
-            tv.setBackgroundColor(Color.RED)
-            tv.gravity = Gravity.CENTER
-            tv.setTextColor(Color.WHITE)
-            tv.setTextSize(50f)
-            tv.text = i.toString()
-            addView(tv)
-        }
         children.forEachIndexed { index, view ->
             view as TextView
             view.text = index.toString()
         }
         log("子view数量： $childCount")
-        requestLayout()
-    }
-
-    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-        var top = 0
-        children.forEachIndexed { index, view ->
-            view.layout(0, top, view.measuredWidth, top + view.measuredHeight)
-            top += view.measuredHeight
-        }
-        log("onLayout高度： $b")
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-//        measureChildren(widthMeasureSpec, heightMeasureSpec)
         measureChildren(widthMeasureSpec, heightMeasureSpec)
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         childHeight = 0
         children.forEachIndexed { index, view ->
-            childHeight += view.measuredHeight
-//            log("控件索引 $index  子控件高度： ${view.measuredHeight}  累计高度  ${childHeight}")
+            childHeight += view.measuredHeight + view.marginTop + view.marginBottom
         }
         maxScrollY = childHeight - measuredHeight//内部子控件的最大可滑动高度==（所有子控件的高度-父控件高度）
         log("控件高度：${MeasureSpec.getSize(heightMeasureSpec)}  子控件高度：$childHeight")
