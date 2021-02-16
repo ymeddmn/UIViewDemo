@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mage.uiviewdemo.view.CustomNestGroupView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.NestScrollingActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#f00" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:translationY="80dp">
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#0f0"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#0f0"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#0f0"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#0f0"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#0f0"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#0f0"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#0f0"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#0f0"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#0f0"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#0f0"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#0f0"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#0f0"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#0f0"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#0f0"
+                android:text="0" />
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</com.mage.uiviewdemo.view.CustomNestGroupView>

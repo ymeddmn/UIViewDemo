@@ -33,7 +33,7 @@ class CustomScrollView : LinearLayout {
 //        scroller = Scroller(context,AccelerateDecelerateInterpolator())
 //        scroller.extendDuration(10)
         val configuration: ViewConfiguration = ViewConfiguration
-            .get(getContext());
+            .get(getContext())
         mMinimumVelocity = configuration.getScaledMinimumFlingVelocity();
     }
 

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.mage.uiviewdemo.activity.CustomScrollViewActivity
+import com.mage.uiviewdemo.activity.NestScrollingActivity
 
 /**
  * 自定义的一个ScrollView
@@ -19,6 +20,9 @@ class MainActivity : AppCompatActivity() {
     private fun initView() {
         findViewById<Button>(R.id.btn_scroll).setOnClickListener {
             startActivity(Intent(this, CustomScrollViewActivity::class.java))
+        }
+        findViewById<Button>(R.id.btn_nestscroll).setOnClickListener {
+            startActivity(Intent(this, NestScrollingActivity::class.java))
         }
     }
 }

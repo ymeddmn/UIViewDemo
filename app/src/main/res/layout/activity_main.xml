@@ -15,6 +15,11 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:text="实现Scrollview的效果(滑动和fling)"/>
+       <Button
+           android:id="@+id/btn_nestscroll"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="实现嵌套滑动的效果，自定义NestScrollParent3接口"/>
    </LinearLayout>
 
 </ScrollView>
